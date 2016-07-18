@@ -14,6 +14,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <errno.h>
+#include <limits.h>
 
 #define MAX_ARG 64
 
@@ -29,6 +30,7 @@ int do_help(int argc, char **argv)
 	printf("help information:\n");
 	printf("\tcls       clear screen\n");
 	printf("\tcd        change current working directory\n");
+	printf("\tpwd       print current working directory\n");
 	printf("\techo      write arguments to standard output\n");
 	printf("\thelp      print this information\n");
 	printf("\tls        list directory\n");
@@ -65,6 +67,13 @@ int do_cd(int argc, char **argv)
 	} else {
 		chdir("/");
 	}
+	return 0;
+}
+
+int do_pwd(int argc, char **argv)
+{
+	char buf[PATH_MAX + 1];
+	printf("%s\n", getcwd(buf, sizeof(buf)));
 	return 0;
 }
 
@@ -116,10 +125,11 @@ int parcmd(char *buf, char **argv)
 }
 
 struct cmd_struct builtins[] = {
-	{ "cd", do_cd },
-	{ "echo", do_echo },
-	{ "cls",do_cls },
-	{ "help", do_help }
+	{ "cd"  , do_cd    },
+	{ "echo", do_echo  },
+	{ "cls" , do_cls   },
+	{ "help", do_help  },
+	{ "pwd" , do_pwd   }
 };
 
 int execcmd(int argc, char **argv)

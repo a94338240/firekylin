@@ -57,5 +57,7 @@ extern int execvpe(char * file, char ** argv, char ** envp);
 extern int pipe(int fd[2]);
 extern int mount(char* special, char *target, char* type, int rw_flag);
 extern int umount(char* special);
+extern int fchdir(int fd);
+extern char *getcwd(char *buf, int buflen);
 
 #endif

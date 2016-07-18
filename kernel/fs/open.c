@@ -135,3 +135,26 @@ long sys_chdir(char *path)
 
 	return 0;
 }
+
+long sys_fchdir(unsigned long fd)
+{
+	struct inode *inode;
+	struct file *file;
+	struct task *current = CURRENT_TASK();
+
+	if (fd > NR_OPEN || !(file = current->file[fd]))
+		return -EBADF;
+
+	inode = idup(file->f_inode);
+	if (!S_ISDIR(inode->i_mode)) {
+		iput(inode);
+		return -ENOTDIR;
+	}
+
+	if (inode != current->pwd) {
+		iput(current->pwd);
+		current->pwd = inode;
+	}
+	unlock_inode(inode);
+	return 0;
+}

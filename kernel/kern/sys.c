@@ -54,6 +54,7 @@ extern long sys_sigsend();
 extern long sys_sigmask();
 extern long sys_sigact();
 extern long sys_pause();
+extern long sys_fchdir();
 
 long (*syscall_table[])()= {
 	sys_fork,
@@ -100,5 +101,6 @@ long (*syscall_table[])()= {
 	sys_sigsend,
 	sys_sigmask,
 	sys_sigact,
-	sys_pause
+	sys_pause,
+	sys_fchdir,
 };

@@ -57,6 +57,7 @@ enum {
 	__NR_sigmask,
 	__NR_sigact,
 	__NR_pause,
+	__NR_fchdir,
 };
 
 #define __syscall0(type,name) 			\

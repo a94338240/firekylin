@@ -59,7 +59,7 @@ int minix1_file_readdir(struct file *file, char * buf, size_t size)
 	dirent->d_ino = minix1_dirent->ino;
 	dirent->d_reclen = MINIX_NAME_LEN;
 	strncpy(dirent->d_name, minix1_dirent->name, MINIX_NAME_LEN);
-
+	dirent->d_name[MINIX_NAME_LEN]=0;
 	brelse(bh);
 	return sizeof(struct minix1_dirent);
 }
