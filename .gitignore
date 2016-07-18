@@ -1,0 +1,14 @@
+
+.project
+.cproject
+
+*.o
+*.a
+*.bin
+*.elf
+*.map
+*.img
+*.iso
+*.pdf
+/iso/
+/Download/

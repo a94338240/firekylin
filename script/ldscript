@@ -1,0 +1,27 @@
+/* This file is part of The Firekylin Operating System.
+ *
+ * Copyright (c) 2016, Liuxiaofeng
+ * All rights reserved.
+ *
+ * This program is free software; you can distribute it and/or modify
+ * it under the terms of The BSD License, see LICENSE.
+ */
+
+ENTRY(_start)
+
+SECTIONS
+{
+	. = 0x40100000+ SIZEOF_HEADERS ;
+	
+	.text : { *(.text) } 
+	. = ALIGN( 4096 ) ;
+	_etext = . ;
+	
+	.data : { *(.data) } 
+	. = ALIGN( 4096 ) ;
+	_edata = . ;
+	
+	.bss  : { *(.bss)  } 
+	. = ALIGN( 4096 ) ;
+	_end = . ;
+}
