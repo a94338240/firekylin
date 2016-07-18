@@ -12,9 +12,14 @@
 #include <time.h>
 #include <errno.h>
 
-static inline __syscall1(int, getime, time_t*, time_loc);
-
 time_t time(time_t *tloc)
 {
-	return getime(tloc);
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+
+	if (tloc) {
+		*tloc = tv.tv_sec;
+	}
+	return tv.tv_sec;
 }

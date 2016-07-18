@@ -18,6 +18,11 @@
 
 #define isleap(y)	(((y)%4==0&&(y)%100!=0)||(y)%400==0)
 
+struct timezone {
+	int    tz_minuteswest;
+	int    tz_dsttime;
+};
+
 struct timeval {
 	time_t tv_sec; 	/* Seconds	*/
 	long   tv_usec; /* Microseconds	*/
@@ -27,5 +32,8 @@ struct timespec {
 	time_t tv_sec; 	/* Seconds	*/
 	long   tv_nsec; /* Nanoseconds	*/
 };
+
+extern int gettimeofday(struct timeval *tv, struct timezone *tz);
+extern int settimeofday(struct timeval *tv, struct timezone *tz);
 
 #endif

@@ -11,6 +11,7 @@
 #include <sys/errno.h>
 #include <sys/param.h>
 #include <sys/times.h>
+#include <sys/time.h>
 #include <kernel.h>
 #include <sched.h>
 #include <mm.h>
@@ -284,26 +285,29 @@ long sys_alarm(unsigned long seconds)
 	return 0;
 }
 
-long sys_getime(long *res)
-{
-	time_t i = current_time();
-
-	if (res) {
-		*res = i;
-	}
-	return i;
-}
-
-long sys_setime(long *p)
-{
-	if ((CURRENT_TASK() )->uid != 0)
-		return -EPERM;
-
-	return start_time = *p - click / HZ;
-}
-
 long sys_pause(void)
 {
 	sleep_on(NULL, TASK_STATE_PAUSE);
 	return -EINTR;
+}
+
+long sys_gettimeofday(struct timeval *tv, struct timezone *tz)
+{
+	if (tv) {
+		tv->tv_sec = current_time();
+		tv->tv_usec = 0;
+	}
+	return 0;
+}
+
+long sys_settimeofday(struct timeval *tv, struct timezone *tz)
+{
+	if ((CURRENT_TASK() )->uid != 0)
+		return -EPERM;
+
+	if(tv){
+		start_time = tv->tv_sec - click / HZ;
+	}
+
+	return 0;
 }

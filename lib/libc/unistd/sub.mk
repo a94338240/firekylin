@@ -36,4 +36,6 @@ LIBC_OBJ+=unistd/getuid.o \
 	  unistd/sigmask.o \
 	  unistd/sigact.o  \
 	  unistd/times.o   \
-	  unistd/pause.o
+	  unistd/pause.o   \
+	  unistd/gettimeofday.o \
+	  unistd/settimeofday.o

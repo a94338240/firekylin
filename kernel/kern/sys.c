@@ -48,8 +48,8 @@ extern long sys_chmod();
 extern long sys_chown();
 extern long sys_utime();
 extern long sys_sync();
-extern long sys_getime();
-extern long sys_setime();
+extern long sys_gettimeofday();
+extern long sys_settimeofday();
 extern long sys_sigsend();
 extern long sys_sigmask();
 extern long sys_sigact();
@@ -95,8 +95,8 @@ long (*syscall_table[])()= {
 	sys_chown,
 	sys_utime,
 	sys_sync,
-	sys_getime,
-	sys_setime,
+	sys_gettimeofday,
+	sys_settimeofday,
 	sys_sigsend,
 	sys_sigmask,
 	sys_sigact,
