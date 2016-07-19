@@ -11,7 +11,7 @@
 #include <sys/syscall.h>
 #include <sys/unistd.h>
 
-int execv(char * pathname, char ** argv)
+int execv(const char *path, char **argv)
 {
-	return execve(pathname, argv, environ);
+	return execve(path, argv, environ);
 }

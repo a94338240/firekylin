@@ -7,7 +7,12 @@ LIBC_OBJ+=unistd/getuid.o \
 	  unistd/read.o \
 	  unistd/stat.o \
 	  unistd/link.o \
+	  unistd/execl.o \
+	  unistd/execv.o \
+	  unistd/execle.o \
           unistd/execve.o \
+          unistd/execvp.o \
+          unistd/execlp.o \
 	  unistd/_exit.o \
 	  unistd/sbrk.o \
           unistd/fork.o \
@@ -16,9 +21,6 @@ LIBC_OBJ+=unistd/getuid.o \
 	  unistd/close.o \
 	  unistd/sync.o \
 	  unistd/mkdir.o \
-          unistd/execvpe.o \
-	  unistd/execvp.o \
-	  unistd/execlp.o  \
 	  unistd/write.o \
 	  unistd/fstat.o \
 	  unistd/dup.o  \

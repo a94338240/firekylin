@@ -142,7 +142,7 @@ int execcmd(int argc, char **argv)
 
 	pid = fork();
 	if (!pid) {
-		execvpe(argv[0], argv, NULL);
+		execvp(argv[0], argv);
 		printf("sh:%s\n", strerror(errno));
 		_exit(0);
 	}

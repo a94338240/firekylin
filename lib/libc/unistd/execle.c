@@ -11,12 +11,12 @@
 #include <sys/syscall.h>
 #include <sys/unistd.h>
 
-int execle(const char * pathname, char * arg0, ...)
+int execle(const char *path, const char * arg0, ...)
 {
-	char ** env = &arg0;
+	char ** env = (char **) &arg0;
 
 	while (!*env)
 		env++;
 
-	return execve(pathname, &arg0, env);
+	return execve(path, (char **) &arg0, env);
 }

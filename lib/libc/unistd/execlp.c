@@ -13,7 +13,7 @@
 #include <string.h>
 #include <errno.h>
 
-int execlp(const char * file, char * arg0, ...)
+int execlp(const char * file, const char * arg0, ...)
 {
-	return execvep(file, &arg0, environ);
+	return execvp(file, (char **) &arg0);
 }
