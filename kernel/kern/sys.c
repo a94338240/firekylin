@@ -12,7 +12,7 @@
 extern long sys_fork();
 extern long sys_execve();
 extern long sys_sbrk();
-extern long sys_wait();
+extern long sys_waitpid();
 extern long sys_exit();
 extern long sys_trace();
 extern long sys_alarm();
@@ -60,7 +60,7 @@ long (*syscall_table[])()= {
 	sys_fork,
 	sys_execve,
 	sys_sbrk,
-	sys_wait,
+	sys_waitpid,
 	sys_exit,
 	sys_trace,
 	sys_alarm,

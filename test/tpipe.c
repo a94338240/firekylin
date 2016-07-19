@@ -44,6 +44,6 @@ int main(int argc, char **argv)
 		printf("father write over");
 		close(fd[0]);
 		close(fd[1]);
-		wait(-1,NULL,0);
+		wait(NULL);
 	}
 }

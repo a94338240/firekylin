@@ -146,7 +146,7 @@ int execcmd(int argc, char **argv)
 		printf("sh:%s\n", strerror(errno));
 		_exit(0);
 	}
-	wait(pid, NULL, 0);
+	wait(NULL);
 	return 0;
 }
 

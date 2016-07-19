@@ -20,9 +20,9 @@ typedef signed   long 	ssize_t;
 typedef unsigned long 	time_t;
 typedef unsigned long 	clock_t;
 
-typedef unsigned int 	uid_t;
-typedef unsigned int 	gid_t;
-typedef unsigned int 	pid_t;
+typedef signed int 	uid_t;
+typedef signed int 	gid_t;
+typedef signed int 	pid_t;
 
 typedef unsigned int 	dev_t;
 typedef unsigned int 	ino_t;

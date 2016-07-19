@@ -15,7 +15,7 @@ enum {
 	__NR_fork,
 	__NR_execve,
 	__NR_sbrk,
-	__NR_wait,
+	__NR_waitpid,
 	__NR_exit,
 	__NR_trace,
 	__NR_alarm,

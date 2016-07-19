@@ -36,5 +36,5 @@ int main(int argc, char **argv)
 		p++;
 	}
 
-	wait(0, NULL, 0);
+	wait(NULL);
 }

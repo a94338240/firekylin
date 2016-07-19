@@ -29,6 +29,7 @@
 #define WTERMSIG(s)	((s)&0x7F)			/* sig value 	*/
 #define WSTOPSIG(s)	(((s)>>8)&0xFF)			/* stop signal 	*/
 
-pid_t wait(pid_t pid, int *status, int options);
+pid_t wait(int *status);
+pid_t waitpid(pid_t pid, int *status, int options);
 
 #endif
