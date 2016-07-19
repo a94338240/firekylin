@@ -63,5 +63,6 @@ extern int mount(char* special, char *target, char* type, int rw_flag);
 extern int umount(char* special);
 extern int fchdir(int fd);
 extern char *getcwd(char *buf, int buflen);
+extern int ioctl(int fd, int cmd, ...);
 
 #endif

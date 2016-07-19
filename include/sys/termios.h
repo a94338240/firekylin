@@ -55,4 +55,11 @@ struct winsize
 	unsigned short	ws_ypixel;	/* vertical size, pixels */
 };
 
+/* tty ioctl cmds */
+enum{
+	TTY_IOCTL_CMD = 0x7700,
+	TCGETS,			/* get tty termios  	*/
+	TCSETS,			/* set tty termios	*/
+};
+
 #endif

@@ -43,4 +43,6 @@ LIBC_OBJ+=unistd/getuid.o \
 	  unistd/gettimeofday.o \
 	  unistd/settimeofday.o \
 	  unistd/fchdir.o       \
-	  unistd/getcwd.o
+	  unistd/getcwd.o  \
+	  unistd/ioctl.o
+	  

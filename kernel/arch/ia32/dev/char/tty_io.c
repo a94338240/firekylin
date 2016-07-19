@@ -147,7 +147,25 @@ static int tty_write(dev_t dev, char * buf, off_t off, size_t size)
 
 static int tty_ioctl(dev_t dev, int cmd, long arg)
 {
-	return -1;
+	struct tty_struct *tty;
+
+	if (MINOR(dev) == 0)
+		return -1;
+
+	tty = tty_table[MINOR(dev)];
+
+	switch (cmd) {
+	case TCGETS:
+		memcpy((char*) arg, (char*) &tty->termios,
+				sizeof(struct termios));
+		return 0;
+	case TCSETS:
+		memcpy((char*) &tty->termios, (char*) arg,
+				sizeof(struct termios));
+		return 0;
+	default:
+		return -1;
+	}
 }
 
 static struct char_device tty =

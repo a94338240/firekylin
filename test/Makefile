@@ -17,7 +17,7 @@ CFLAGS=-c -x c -Wall -m32 -std=c99 -nostdinc -nostdlib -fno-builtin \
 LIB=../lib/libc/libc.a  ../lib/libm/libm.a
 
 OBJS=tpipe.elf     tsig.elf     t_strcspn.elf  tmath.elf  \
-     t_strtod.elf  t_times.elf  tcom1.elf
+     t_strtod.elf  t_times.elf  tcom1.elf      tioctl.elf
 RAW_OBJS=tlua1.lua t1.sh
 
 .s.o:
