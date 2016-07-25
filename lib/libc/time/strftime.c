@@ -36,26 +36,26 @@ static int  i2a ( char* dest,unsigned int x )
     return 2;
 }
 
-size_t  strftime ( char* dst, size_t max, const char* format, const struct tm* tm )
+size_t strftime(char *buf, size_t size, const char *fmt, struct tm *tmptr)
 {
-    char*         p = dst;
+    char*         p = buf;
     const char*   src;
     unsigned int  no;
-    char          buf [5];
+    char          tbuf [5];
 
 
-    for ( ; *format != '\0'; format++ ) {
-	if (*format == '%') {
-	    if (*++format == '%') {
+    for ( ; *fmt != '\0'; fmt++ ) {
+	if (*fmt == '%') {
+	    if (*++fmt == '%') {
 	        *p++ = '%';
 	    }
 	    else
 again:
-    	    switch (*format) {
+    	    switch (*fmt) {
 //          case '%': *p++ = '%';  				 break;			// reduce size of jump table
             case 'n': *p++ = '\n'; 				 break;
             case 't': *p++ = '\t'; 				 break;
-	    case 'O': case 'E': ++format; goto again;
+	    case 'O': case 'E': ++fmt; goto again;
             case 'c': src = "%b %a %d %k:%M:%S %Z %Y";        	 goto _strf;
             case 'r': src = "%I:%M:%S %p";                    	 goto _strf;
             case 'R': src = "%H:%M";      			 goto _strf;
@@ -63,29 +63,29 @@ again:
             case 'X': src = "%k:%M:%S";   			 goto _strf;
             case 'D': src = "%m/%d/%y";   			 goto _strf;
             case 'T': src = "%H:%M:%S";
-               _strf: p  += strftime (p, (size_t)(dst+max-p), src, tm); 	 break;
-            case 'a': src = sweekdays [tm->tm_wday]; 		 goto _str;
-            case 'A': src = weekdays  [tm->tm_wday]; 		 goto _str;
+               _strf: p  += strftime (p, (size_t)(buf+size-p), src, tmptr); 	 break;
+            case 'a': src = sweekdays [tmptr->tm_wday]; 		 goto _str;
+            case 'A': src = weekdays  [tmptr->tm_wday]; 		 goto _str;
             case 'h':
-            case 'b': src = smonths   [tm->tm_mon];  		 goto _str;
-            case 'B': src = months    [tm->tm_mon];  		 goto _str;
-            case 'p': src = ampm [tm->tm_hour > 12 ? 3 : 2]; goto _str;
-            case 'P': src = ampm [tm->tm_hour > 12 ? 1 : 0]; goto _str;
-            case 'C': no  = tm->tm_year/100 + 19; 		 goto _no;
-            case 'd': no  = tm->tm_mday;          		 goto _no;
-            case 'e': no  = tm->tm_mday;          		 goto _nos;
-            case 'H': no  = tm->tm_hour;          		 goto _no;
-            case 'I': no  = tm->tm_hour % 12;     		 goto _no;
-            case 'j': no  = tm->tm_yday;          		 goto _no;
-            case 'k': no  = tm->tm_hour;          		 goto _nos;
-            case 'l': no  = tm->tm_hour % 12;     		 goto _nos;
-            case 'm': no  = tm->tm_mon + 1;         		 goto _no;
-            case 'M': no  = tm->tm_min;           		 goto _no;
-            case 'S': no  = tm->tm_sec;           		 goto _no;
-            case 'u': no  = tm->tm_wday ? tm->tm_wday : 7; 	 goto _no;
-            case 'w': no  = tm->tm_wday;              		 goto _no;
-	    case 'U': no  = (tm->tm_yday - tm->tm_wday + 7) / 7; goto _no;
-	    case 'W': no  = (tm->tm_yday - (tm->tm_wday - 1 + 7) % 7 + 7) / 7; goto _no;
+            case 'b': src = smonths   [tmptr->tm_mon];  		 goto _str;
+            case 'B': src = months    [tmptr->tm_mon];  		 goto _str;
+            case 'p': src = ampm [tmptr->tm_hour > 12 ? 3 : 2]; goto _str;
+            case 'P': src = ampm [tmptr->tm_hour > 12 ? 1 : 0]; goto _str;
+            case 'C': no  = tmptr->tm_year/100 + 19; 		 goto _no;
+            case 'd': no  = tmptr->tm_mday;          		 goto _no;
+            case 'e': no  = tmptr->tm_mday;          		 goto _nos;
+            case 'H': no  = tmptr->tm_hour;          		 goto _no;
+            case 'I': no  = tmptr->tm_hour % 12;     		 goto _no;
+            case 'j': no  = tmptr->tm_yday;          		 goto _no;
+            case 'k': no  = tmptr->tm_hour;          		 goto _nos;
+            case 'l': no  = tmptr->tm_hour % 12;     		 goto _nos;
+            case 'm': no  = tmptr->tm_mon + 1;         		 goto _no;
+            case 'M': no  = tmptr->tm_min;           		 goto _no;
+            case 'S': no  = tmptr->tm_sec;           		 goto _no;
+            case 'u': no  = tmptr->tm_wday ? tmptr->tm_wday : 7; 	 goto _no;
+            case 'w': no  = tmptr->tm_wday;              		 goto _no;
+	    case 'U': no  = (tmptr->tm_yday - tmptr->tm_wday + 7) / 7; goto _no;
+	    case 'W': no  = (tmptr->tm_yday - (tmptr->tm_wday - 1 + 7) % 7 + 7) / 7; goto _no;
 	    case 'Z':
 #ifdef WANT_TZFILE_PARSER
 		      tzset(); src = tzname[0];
@@ -93,31 +93,31 @@ again:
 		      src = "[unknown timezone]";
 #endif
 		      goto _str;
-            case 'Y': i2a ( buf+0, (unsigned int)(tm->tm_year / 100 + 19) );
-		      i2a ( buf+2, (unsigned int)(tm->tm_year % 100) );
-		      src = buf;
+            case 'Y': i2a ( tbuf+0, (unsigned int)(tmptr->tm_year / 100 + 19) );
+		      i2a ( tbuf+2, (unsigned int)(tmptr->tm_year % 100) );
+		      src = tbuf;
 		      goto _str;
-            case 'y': no  = tm->tm_year % 100; 			 goto _no;
-                 _no: i2a ( buf, no );				 /* append number 'no' */
-                      src = buf;
+            case 'y': no  = tmptr->tm_year % 100; 			 goto _no;
+                 _no: i2a ( tbuf, no );				 /* append number 'no' */
+                      src = tbuf;
             	      goto _str;
-                _nos: i2a ( buf, no );				 /* the same, but '0'->' ' */
-            	      if (buf[0] == '0')
-		          buf[0] = ' ';
-		      src = buf;
-		_str: while (*src  &&  p < dst+max)		 /* append string */
+                _nos: i2a ( tbuf, no );				 /* the same, but '0'->' ' */
+            	      if (tbuf[0] == '0')
+		          tbuf[0] = ' ';
+		      src = tbuf;
+		_str: while (*src  &&  p < buf+size)		 /* append string */
       	                  *p++ = *src++;
       	              break;
       	    };
         } else {
-            *p++ = *format;
+            *p++ = *fmt;
         }
 
-        if (p >= dst+max)
+        if (p >= buf+size)
             break;
     }
 
     *p = '\0';
-    return p - dst;
+    return p - buf;
 }
 
