@@ -36,5 +36,6 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		do_cat(fd);
+		close(fd);
 	}
 }

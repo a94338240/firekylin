@@ -1,36 +1,81 @@
-/* This file is part of The Firekylin Operating System.
- *
- * Copyright (c) 2016, Liuxiaofeng
- * All rights reserved.
- *
- * This program is free software; you can distribute it and/or modify
- * it under the terms of The BSD License, see LICENSE.
- */
-
+#include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 
-long double strtold(const char *ptr, char **endptr)
+long double strtold(const char* s, char** endptr)
 {
-	long double ret = 0;
-	double sal = 0.1;
-	char *p = (char *) ptr;
+	char* p = s;
+	long double value = 0.L;
+	int sign = +1;
+	long double factor;
+	unsigned int expo;
 
 	while (isspace(*p))
 		p++;
-	while (isdigit(*p)){
-		ret = ret * 10 + *p - '0';
+
+	switch (*p) {
+	case '-':
+		sign = -1;
+	case '+':
 		p++;
+	default:
+		break;
 	}
+
+	while ((unsigned int) (*p - '0') < 10u)
+		value = value * 10 + (*p++ - '0');
+
 	if (*p == '.') {
+		factor = 1.;
+
 		p++;
-		while (isdigit(*p)) {
-			ret += (*p - '0') * sal;
-			sal = sal / 10;
-			p++;
+		while ((unsigned int) (*p - '0') < 10u) {
+			factor *= 0.1;
+			value += (*p++ - '0') * factor;
 		}
 	}
-	if (endptr)
-		*endptr = p;
-	return ret;
+
+	if ((*p | 32) == 'e') {
+		expo = 0;
+		factor = 10.L;
+
+		switch (*++p) { // ja hier wei?ich nicht, was mindestens nach einem 'E' folgenden MUSS.
+		case '-':
+			factor = 0.1;
+		case '+':
+			p++;
+			break;
+		case '0':
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9':
+			break;
+		default:
+			value = 0.L;
+			p = s;
+			goto done;
+		}
+
+		while ((unsigned int) (*p - '0') < 10u)
+			expo = 10 * expo + (*p++ - '0');
+
+		while (1) {
+			if (expo & 1)
+				value *= factor;
+			if ((expo >>= 1) == 0)
+				break;
+			factor *= factor;
+		}
+	}
+
+	done: if (endptr != NULL)
+		*endptr = (char*) p;
+
+	return value * sign;
 }
