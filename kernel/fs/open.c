@@ -130,8 +130,10 @@ long sys_chdir(char *path)
 	if (inode != current->pwd) {
 		iput(current->pwd);
 		current->pwd = inode;
+		unlock_inode(inode);
+	} else{
+		iput(inode);
 	}
-	unlock_inode(inode);
 
 	return 0;
 }
@@ -154,7 +156,9 @@ long sys_fchdir(unsigned long fd)
 	if (inode != current->pwd) {
 		iput(current->pwd);
 		current->pwd = inode;
+		unlock_inode(inode);
+	} else{
+		iput(inode);
 	}
-	unlock_inode(inode);
 	return 0;
 }
