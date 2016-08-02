@@ -7,11 +7,11 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <ctype.h>
+#include <wctype.h>
 
-#undef ispuntc
+#undef iswpuntc
 
-int ispuntc(int c)
+int iswpuntc(wint_t c)
 {
 	return (__ctype[(c)+1]&(_P));
 }

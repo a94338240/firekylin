@@ -7,11 +7,11 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <ctype.h>
+#include <wctype.h>
 
-#undef ispuntc
+#undef iswgraph
 
-int ispuntc(int c)
+int iswgraph(wint_t c)
 {
-	return (__ctype[(c)+1]&(_P));
+	return (__ctype[(c)+1]&(_P|_U|_L|_D));
 }

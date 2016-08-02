@@ -7,11 +7,11 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <ctype.h>
+#include <wctype.h>
 
-#undef ispuntc
+#undef towlower
 
-int ispuntc(int c)
+wint_t towlower(wint_t c)
 {
-	return (__ctype[(c)+1]&(_P));
+	return iswupper(c) ? c+0x20 : c;
 }
