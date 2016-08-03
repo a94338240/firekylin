@@ -30,7 +30,7 @@ struct stat {
 #define	S_IXOTH		 000001
 #define S_IWOTH		 000002
 #define S_IROTH		 000004
-#define S_TRWXO		 000007
+#define S_IRWXO		 000007
 
 #define S_IXGRP		 000010
 #define S_IWGRP		 000020

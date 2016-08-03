@@ -18,7 +18,7 @@ LIB=../lib/libc/libc.a  ../lib/libm/libm.a
 
 OBJS=init.elf  sh.elf     ls.elf  cat.elf  sync.elf   mkdir.elf   cp.elf \
      rm.elf    rmdir.elf  ln.elf  vi.elf   mount.elf  umount.elf  basename.elf \
-     dirname.elf date.elf
+     dirname.elf date.elf cal.elf chmod.elf
 
 .s.o:
 	@$(AS) $(SFLAGS) -o $@  $<

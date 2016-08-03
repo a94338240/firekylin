@@ -32,5 +32,5 @@ long strtol(const char *str, char **endptr, int base)
 	if (endptr)
 		*endptr = p;
 
-	return sig ? ret : -ret;
+	return sig ? -ret : ret;
 }

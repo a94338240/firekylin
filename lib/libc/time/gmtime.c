@@ -23,7 +23,7 @@ struct tm *gmtime(time_t *t)
 		return 0;
 	stm->tm_wday = ((time / DAY) + 4) % 7;
 
-	year = 70;
+	year = 1970;
 	for (;;) {
 		if (time < YEAR)
 			break;
