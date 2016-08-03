@@ -18,7 +18,7 @@ LIB=../lib/libc/libc.a  ../lib/libm/libm.a
 
 OBJS=tpipe.elf     tsig.elf     t_strcspn.elf  tmath.elf  \
      t_strtod.elf  t_times.elf  tcom1.elf      tioctl.elf \
-     tstrrchr.elf
+     tstrrchr.elf  tenv.elf
 RAW_OBJS=tlua1.lua t1.sh
 
 .s.o:

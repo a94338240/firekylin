@@ -18,4 +18,5 @@ LIBC_OBJ+=stdlib/abort.o   \
 	  stdlib/strtoull.o \
 	  stdlib/strtof.o    \
 	  stdlib/strtod.o    \
-	  stdlib/strtold.o
+	  stdlib/strtold.o   \
+	  stdlib/putenv.o
