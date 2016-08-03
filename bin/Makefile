@@ -17,7 +17,8 @@ CFLAGS=-g -c -x c -Wall -m32 -std=c99 -nostdinc -nostdlib -fno-builtin \
 LIB=../lib/libc/libc.a  ../lib/libm/libm.a
 
 OBJS=init.elf  sh.elf     ls.elf  cat.elf  sync.elf   mkdir.elf   cp.elf \
-     rm.elf    rmdir.elf  ln.elf  vi.elf   mount.elf  umount.elf
+     rm.elf    rmdir.elf  ln.elf  vi.elf   mount.elf  umount.elf  basename.elf \
+     dirname.elf
 
 .s.o:
 	@$(AS) $(SFLAGS) -o $@  $<

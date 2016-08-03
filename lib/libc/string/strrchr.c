@@ -12,9 +12,11 @@
 char * strrchr(const char * str, int ch)
 {
 	char *s = (char *) str;
-	while (*str)
-		str++;
-	while (str-- != s && *str != (char) ch)
+	while (*s)
+		s++;
+
+	while (s-- != str && *s != (char) ch)
 		;
-	return (s <= str ? NULL : s);
+
+	return s <= str ? NULL : s;
 }

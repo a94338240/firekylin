@@ -21,6 +21,7 @@ include stdlib/sub.mk
 include string/sub.mk
 include time/sub.mk
 include unistd/sub.mk
+include misc/sub.mk
 
 .s.o:
 	@echo         AS	$<
