@@ -9,12 +9,12 @@
 
 #include <sys/stat.h>
 #include <sys/fcntl.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <driver.h>
-#include <fs.h>
-#include <mm.h>
-#include <elf.h>
+#include <firekylin/kernel.h>
+#include <firekylin/driver.h>
+#include <firekylin/fs.h>
+#include <firekylin/mm.h>
+#include <firekylin/elf.h>
+#include <errno.h>
 
 static long read_char(struct file *file, char *buf, size_t size)
 {

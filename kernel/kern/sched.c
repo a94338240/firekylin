@@ -8,14 +8,14 @@
  */
 
 #include <sys/types.h>
-#include <sys/errno.h>
 #include <sys/param.h>
 #include <sys/times.h>
-#include <sys/time.h>
-#include <kernel.h>
-#include <sched.h>
-#include <mm.h>
-#include <lock.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/mm.h>
+#include <firekylin/lock.h>
+#include <time.h>
+#include <errno.h>
 
 time_t start_time;
 clock_t click;

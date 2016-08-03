@@ -8,11 +8,11 @@
  */
 
 #include <sys/stat.h>
-#include <sys/errno.h>
 #include <sys/fcntl.h>
-#include <kernel.h>
-#include <mm.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/mm.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 /* define in file fs/read.c */
 extern long exec_load_file(struct file *file, char *buf);

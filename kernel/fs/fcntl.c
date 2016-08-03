@@ -10,10 +10,10 @@
 #include <sys/fcntl.h>
 #include <sys/unistd.h>
 #include <sys/stat.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <driver.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/driver.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 static long dupfd(long fd, unsigned long arg)
 {

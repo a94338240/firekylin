@@ -7,8 +7,8 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#ifndef _SYS_DIRENT_H
-#define _SYS_DIRENT_H
+#ifndef _DIRENT_H
+#define _DIRENT_H
 
 #include <sys/types.h>
 

@@ -9,12 +9,3 @@ global dlopen, dlclose
 dlopen:
 dlclose:
 	ret
-	
-global gettimeofday
-gettimeofday:
-	ret
-
-global getcwd
-getcwd:
-	xor eax,eax
-	ret

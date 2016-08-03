@@ -9,9 +9,9 @@
 
 #include <sys/stat.h>
 #include <sys/fcntl.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 long sys_mknod(char *filename, mode_t mode, dev_t dev)
 {

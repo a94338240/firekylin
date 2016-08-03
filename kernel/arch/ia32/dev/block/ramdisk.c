@@ -7,12 +7,12 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <lock.h>
-#include <sched.h>
-#include <driver.h>
-#include <mm.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/lock.h>
+#include <firekylin/sched.h>
+#include <firekylin/driver.h>
+#include <firekylin/mm.h>
+#include <firekylin/fs.h>
 
 /*
  * ramdisk start at phyiscal address:0x200000 len:0x400000

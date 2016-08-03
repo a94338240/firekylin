@@ -10,11 +10,11 @@
 #include <sys/fcntl.h>
 #include <sys/unistd.h>
 #include <sys/stat.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <sched.h>
-#include <mm.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/mm.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 struct pipe_i_ext {
 	unsigned long buf;

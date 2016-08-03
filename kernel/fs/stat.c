@@ -8,9 +8,9 @@
  */
 
 #include <sys/stat.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 static void copy_stat(struct inode *inode, struct stat *statbuf)
 {

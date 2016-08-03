@@ -7,8 +7,8 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <sched.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
 #include <arch/ia32/portio.h>
 
 #define BCD_BIN(c)	(c=c/16*10+c%16)
@@ -32,7 +32,7 @@ extern void inet_init(void);
 
 static void time_init()
 {
-	extern time_t mktime(int year, int mon, int day, int hour, int min,
+	extern time_t kmktime(int year, int mon, int day, int hour, int min,
 			int sec);
 	int year, month, day, hour, min, sec;
 
@@ -48,7 +48,7 @@ static void time_init()
 	BCD_BIN(day);
 	BCD_BIN(month);
 	BCD_BIN(year);
-	start_time = mktime(year, month, day, hour, min, sec);
+	start_time = kmktime(year, month, day, hour, min, sec);
 }
 
 void start(void)

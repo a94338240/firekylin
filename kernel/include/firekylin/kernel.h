@@ -12,7 +12,7 @@
 
 #include <sys/types.h>
 #include <sys/param.h>
-#include <sched.h>
+#include <firekylin/sched.h>
 
 #define max(a,b)	((a)>=(b) ? (a) : (b))
 #define min(a,b)	((a)<=(b) ? (a) : (b))
@@ -42,7 +42,7 @@ extern clock_t click;
 
 extern void do_exit(long status);
 
-extern void sigsend(struct task *p, int signo);
+extern void ksigsend(struct task *p, int signo);
 
 enum {
 	SOFTIRQ_TIMER,

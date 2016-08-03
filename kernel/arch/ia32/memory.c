@@ -7,10 +7,10 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <sched.h>
-#include <mm.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/mm.h>
+#include <firekylin/fs.h>
 #include <arch/ia32/trap.h>
 #include <multiboot2.h>
 

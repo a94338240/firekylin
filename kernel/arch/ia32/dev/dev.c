@@ -7,8 +7,8 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <driver.h>
+#include <firekylin/kernel.h>
+#include <firekylin/driver.h>
 
 extern void tty_init(void);
 extern void mem_init(void);

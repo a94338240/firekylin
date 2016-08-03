@@ -7,7 +7,7 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
+#include <firekylin/kernel.h>
 #include <ctype.h>
 #include <stdarg.h>
 

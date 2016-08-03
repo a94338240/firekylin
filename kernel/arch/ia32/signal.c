@@ -7,11 +7,11 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <lock.h>
-#include <sys/signal.h>
+#include <firekylin/kernel.h>
+#include <firekylin/lock.h>
 #include <arch/ia32/sched.h>
 #include <arch/ia32/trap.h>
+#include <signal.h>
 
 void do_signal(long unused)
 {

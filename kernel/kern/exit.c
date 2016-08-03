@@ -8,12 +8,12 @@
  */
 
 #include <sys/types.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <sched.h>
-#include <lock.h>
-#include <mm.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/lock.h>
+#include <firekylin/mm.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 extern void unready(int state);
 void do_exit(long exitcode)
@@ -31,7 +31,7 @@ void do_exit(long exitcode)
 
 	irq_lock();
 	unready(TASK_STATE_EXIT);
-	sigsend(current->parent, SIGCHLD);
+	ksigsend(current->parent, SIGCHLD);
 	sched();
 }
 

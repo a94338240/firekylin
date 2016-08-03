@@ -7,10 +7,10 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <lock.h>
-#include <mm.h>
-#include <skbuf.h>
+#include <firekylin/kernel.h>
+#include <firekylin/lock.h>
+#include <firekylin/mm.h>
+#include <firekylin/skbuf.h>
 
 static struct skbuf *skb_free_list;
 

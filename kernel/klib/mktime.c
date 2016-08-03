@@ -7,8 +7,7 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <sys/types.h>
-#include <sys/time.h>
+#include <time.h>
 
 static int month[] = {
 	0, 0,
@@ -25,7 +24,7 @@ static int month[] = {
 	(31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30)
 };
 
-time_t mktime(int year, int mon, int day, int hour, int min, int sec)
+time_t kmktime(int year, int mon, int day, int hour, int min, int sec)
 {
 	long res = 0;
 

@@ -7,11 +7,11 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <lock.h>
-#include <tty.h>
-#include <ctype.h>
+#include <firekylin/kernel.h>
+#include <firekylin/lock.h>
+#include <firekylin/tty.h>
 #include <arch/ia32/portio.h>
+#include <ctype.h>
 
 struct console {
 	unsigned long base;

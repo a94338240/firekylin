@@ -8,8 +8,8 @@
  */
 
 #include <sys/types.h>
-#include <kernel.h>
-#include <lock.h>
+#include <firekylin/kernel.h>
+#include <firekylin/lock.h>
 #include <stdarg.h>
 
 extern int vsprintf(char* buf, char* fmt, va_list ap);

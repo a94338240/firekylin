@@ -8,11 +8,11 @@
  */
 
 #include <sys/param.h>
-#include <kernel.h>
-#include <sched.h>
-#include <driver.h>
-#include <mm.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/driver.h>
+#include <firekylin/mm.h>
+#include <firekylin/fs.h>
 
 #define READ_BUF	1
 #define WRITE_BUF	2

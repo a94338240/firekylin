@@ -9,9 +9,9 @@
 
 #include <sys/types.h>
 #include <sys/unistd.h>
-#include <sys/dirent.h>
 #include <sys/fcntl.h>
 #include <sys/stat.h>
+#include <dirent.h>
 #include <string.h>
 #include <stdio.h>
 #include <limits.h>

@@ -1,4 +1,4 @@
-#include "keys.h"
+#include <firekylin/keys.h>
 /*
  * MAX_SCAN_CODES == 0x80
  * MAP_COLS       == 0x03

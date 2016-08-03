@@ -7,10 +7,10 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <sched.h>
-#include <driver.h>
-#include <tty.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/driver.h>
+#include <firekylin/tty.h>
 
 extern void con_init(void);
 extern void kbd_init(void);

@@ -10,7 +10,7 @@
 #include <sys/fcntl.h>
 #include <sys/stat.h>
 #include <sys/unistd.h>
-#include <sys/dirent.h>
+#include <dirent.h>
 #include <errno.h>
 
 void rewinddir(DIR * dir)

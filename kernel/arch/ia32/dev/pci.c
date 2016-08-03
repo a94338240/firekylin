@@ -7,8 +7,8 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <pci.h>
+#include <firekylin/kernel.h>
+#include <firekylin/pci.h>
 
 #define MAX_PCI_DEVICE		32
 

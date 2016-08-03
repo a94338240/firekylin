@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <sys/syscall.h>
 #include <sys/unistd.h>
-#include <sys/time.h>
+#include <time.h>
 #include <errno.h>
 
 __syscall2(int, gettimeofday, struct timeval*, tv, struct timezone *, tz);

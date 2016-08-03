@@ -7,7 +7,7 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <sys/errno.h>
+#include <errno.h>
 
 long sys_trace()
 {

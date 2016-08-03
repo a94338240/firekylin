@@ -10,11 +10,11 @@
 #include <sys/stat.h>
 #include <sys/fcntl.h>
 #include <sys/unistd.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <sched.h>
-#include <driver.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/driver.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 struct file file_table[NR_FILE];
 sleeplock_t file_table_lock;

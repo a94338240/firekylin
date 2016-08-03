@@ -11,8 +11,8 @@
 #define _LOCK_H
 
 #include <sys/types.h>
-#include <kernel.h>
-#include <sched.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
 
 #define irq_disable()	__asm__("cli")
 

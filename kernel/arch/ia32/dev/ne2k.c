@@ -7,15 +7,15 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <lock.h>
-#include <pci.h>
-#include <mm.h>
-#include <net/ether.h>
-#include <net/arp.h>
-#include <skbuf.h>
+#include <firekylin/kernel.h>
+#include <firekylin/lock.h>
+#include <firekylin/pci.h>
+#include <firekylin/mm.h>
+#include <firekylin/skbuf.h>
 #include <arch/ia32/trap.h>
 #include <arch/ia32/bits.h>
+#include <net/ether.h>
+#include <net/arp.h>
 
 /*
  * ne2k_pci rquipped by bochs or qemu. other unknow.

@@ -7,12 +7,12 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <sched.h>
-#include <sys/signal.h>
-#include <sys/errno.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <signal.h>
+#include <errno.h>
 
-void sigsend(struct task *p, int signo)
+void ksigsend(struct task *p, int signo)
 {
 	if (!p)
 		return;
@@ -32,7 +32,7 @@ long sys_sigsend(pid_t pid, unsigned int signo)
 	if (pid > 0) {
 		for (p = task_table; p < task_table + NR_TASK; p++) {
 			if (*p && (*p)->pid == pid)
-				sigsend(*p, signo);
+				ksigsend(*p, signo);
 		}
 	}
 
@@ -40,7 +40,7 @@ long sys_sigsend(pid_t pid, unsigned int signo)
 		pid = -pid;
 		for (p = task_table; p < task_table + NR_TASK; p++) {
 			if (*p && (*p)->grp == pid)
-				sigsend(*p, signo);
+				ksigsend(*p, signo);
 		}
 	}
 	return 0;

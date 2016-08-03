@@ -7,8 +7,8 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <tty.h>
+#include <firekylin/kernel.h>
+#include <firekylin/tty.h>
 #include <arch/ia32/trap.h>
 #include <arch/ia32/portio.h>
 

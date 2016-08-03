@@ -7,11 +7,11 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <driver.h>
-#include <mm.h>
-#include <sys/errno.h>
+#include <firekylin/kernel.h>
+#include <firekylin/driver.h>
+#include <firekylin/mm.h>
 #include <arch/ia32/portio.h>
+#include <errno.h>
 
 /* minor dev suport by mem */
 #define MEM_MEM		1

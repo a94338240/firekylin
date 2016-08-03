@@ -12,7 +12,7 @@
 
 #include <sys/types.h>
 #include <sys/param.h>
-#include <sys/signal.h>
+#include <signal.h>
 
 #include <arch/ia32/sched.h>
 

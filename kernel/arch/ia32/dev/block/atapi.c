@@ -7,11 +7,11 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <sched.h>
-#include <driver.h>
-#include <fs.h>
-#include <partion.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/driver.h>
+#include <firekylin/fs.h>
+#include <firekylin/partion.h>
 #include <arch/ia32/portio.h>
 #include <arch/ia32/trap.h>
 #include "atapi.h"

@@ -12,7 +12,8 @@
 
 #include <sys/types.h>
 #include <sys/param.h>
-#include <lock.h>
+#include <firekylin/lock.h>
+#include <dirent.h>
 
 struct buffer {
 	dev_t           b_dev;
@@ -91,8 +92,6 @@ struct file {
 
 #define lock_file(file)		require_lock(&((file)->f_lock))
 #define unlock_file(file)	release_lock(&((file)->f_lock))
-
-#include <sys/dirent.h>
 
 struct fs_operation{
 	/* super operation */

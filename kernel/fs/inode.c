@@ -8,9 +8,9 @@
  */
 
 #include <sys/param.h>
-#include <kernel.h>
-#include <driver.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/driver.h>
+#include <firekylin/fs.h>
 
 struct inode inode_table[NR_INODE];
 struct inode * root_inode;

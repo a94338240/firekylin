@@ -9,10 +9,10 @@
 
 #include <sys/stat.h>
 #include <sys/fcntl.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <driver.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/driver.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 static long write_char(struct file *file, char *buf, size_t size)
 {

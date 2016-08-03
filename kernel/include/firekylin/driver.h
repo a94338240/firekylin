@@ -11,7 +11,7 @@
 #define _DRIVER_H
 
 #include <sys/types.h>
-#include <fs.h>
+#include <firekylin/fs.h>
 
 #define DEV(major,minor)	(((major<<8)&0xff00) |((minor)&0xff))
 #define MAJOR(dev)		(((dev)>>8)&0xff)

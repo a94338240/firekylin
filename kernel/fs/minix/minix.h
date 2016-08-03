@@ -13,10 +13,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/fcntl.h>
-#include <sys/errno.h>
+#include <firekylin/kernel.h>
+#include <firekylin/fs.h>
 #include <arch/ia32/bits.h>
-#include <kernel.h>
-#include <fs.h>
+#include <errno.h>
 
 struct minix1_inode {
 	unsigned short i_mode;

@@ -10,10 +10,10 @@
 #include <sys/types.h>
 #include <sys/param.h>
 #include <sys/stat.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <driver.h>
-#include <fs.h>
+#include <firekylin/kernel.h>
+#include <firekylin/driver.h>
+#include <firekylin/fs.h>
+#include <errno.h>
 
 extern struct fs_operation minix_fs_operation;
 

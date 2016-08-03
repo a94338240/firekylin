@@ -8,11 +8,11 @@
  */
 
 #include <sys/types.h>
-#include <sys/errno.h>
-#include <kernel.h>
-#include <sched.h>
-#include <mm.h>
-#include <fs.h>
+#include <errno.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/mm.h>
+#include <firekylin/fs.h>
 
 static pid_t last_pid = 0;
 

@@ -1,7 +1,7 @@
 #include <sys/fcntl.h>
 #include <sys/unistd.h>
-#include <sys/termios.h>
 #include <stdio.h>
+#include <termios.h>
 
 int main(void)
 {

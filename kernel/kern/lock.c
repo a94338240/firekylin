@@ -7,9 +7,9 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
-#include <sched.h>
-#include <lock.h>
+#include <firekylin/kernel.h>
+#include <firekylin/sched.h>
+#include <firekylin/lock.h>
 
 void require_lock(sleeplock_t *lock)
 {

@@ -7,7 +7,7 @@
  * it under the terms of The BSD License, see LICENSE.
  */
 
-#include <kernel.h>
+#include <firekylin/kernel.h>
 
 size_t strlen(char *s)
 {

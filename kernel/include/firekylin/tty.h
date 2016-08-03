@@ -10,9 +10,9 @@
 #ifndef _TTY_H
 #define _TTY_H
 
-#include <sys/termios.h>
-#include <sched.h>
-#include <keys.h>
+#include <firekylin/sched.h>
+#include <firekylin/keys.h>
+#include <termios.h>
 
 #define C(x) (x - '@')
 
