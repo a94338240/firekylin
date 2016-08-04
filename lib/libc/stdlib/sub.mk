@@ -19,4 +19,9 @@ LIBC_OBJ+=stdlib/abort.o   \
 	  stdlib/strtof.o    \
 	  stdlib/strtod.o    \
 	  stdlib/strtold.o   \
-	  stdlib/putenv.o
+	  stdlib/putenv.o    \
+	  stdlib/div.o      \
+	  stdlib/ldiv.o     \
+	  stdlib/qsort.o    \
+	  stdlib/system.o   \
+	  stdlib/setenv.o   

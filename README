@@ -10,7 +10,7 @@
   such as ls, cat, mkdir, rm, etc.
     Firekylin can boot use a CD-ROM. It use GRUB to load the kenrel and ramdisk.
   Ramdisk is the root file system, all the operations on it would disappear. 
-    Firkeylin is distribute under The BSD License, see LICENSE.
+    Firkeylin is distribute under The Apache License 2.0, see LICENSE.
     
     Firekylin only can be compiled on a Linux system. When before compile 
   Firekylin, you should ensure nasm,gcc,ld,make,ar has be installed on your
