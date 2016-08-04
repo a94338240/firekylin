@@ -20,19 +20,17 @@
 
 #include <sys/types.h>
 
-#define PW_FILE		"/etc/passwd"
+#define GRP_FILE 	"/etc/group"
 
-struct passwd {
-	char *pw_name; 		/* Username.  		*/
-	char *pw_passwd; 	/* Password.  		*/
-	uid_t pw_uid; 		/* User ID.  		*/
-	gid_t pw_gid; 		/* Group ID.  		*/
-	char *pw_gecos; 	/* Real name.  		*/
-	char *pw_dir; 		/* Home directory.  	*/
-	char *pw_shell; 	/* Shell program.  	*/
+/* The group structure */
+struct group {
+	char   *gr_name;	/* Group name.	*/
+	char   *gr_passwd; 	/* Password.	*/
+	gid_t   gr_gid; 	/* Group ID.	*/
+	char  **gr_mem; 	/* Member list.	*/
 };
 
-extern struct passwd *getpwnam(const char *name);
-extern struct passwd *getpwuid(uid_t uid);
+extern struct group  *getgrgid(gid_t gid);
+extern struct group  *getgrnam(const char *name);
 
 #endif
